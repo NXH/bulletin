@@ -28,10 +28,10 @@
         <td><%= event.title %></td>
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
-        <td><%= event.account_id %></td>
+        <td><%= event.account.nickname %></td>
         <td><%= event.description %></td>
         <td><%= event.location %></td>
-        <td><%= event.category_id %></td>
+        <td><%= event.category.name %></td>
         <td><%= event.person1? %></td>
         <td><%= event.person2? %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, event_url(event), class: 'btn btn-primary' %></td>

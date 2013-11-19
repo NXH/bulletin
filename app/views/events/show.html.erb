@@ -13,7 +13,7 @@
   <dd><%= @event.end_time %></dd>
 
   <dt>Account</dt>
-  <dd><%= @event.account_id %></dd>
+  <dd><%= @event.account.nickname %></dd>
 
   <dt>Description</dt>
   <dd><%= @event.description %></dd>
@@ -22,7 +22,7 @@
   <dd><%= @event.location %></dd>
 
   <dt>Category</dt>
-  <dd><%= @event.category_id %></dd>
+  <dd><%= @event.category.name %></dd>
 
   <dt>Person1</dt>
   <dd><%= @event.person1? %></dd>

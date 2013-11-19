@@ -10,21 +10,21 @@
   <dd><%= @task.due_date %></dd>
 
   <dt>Account</dt>
-  <dd><%= @task.account_id %></dd>
+  <dd><%= @task.account.nickname %></dd>
 
   <dt>Description</dt>
   <dd><%= @task.description %></dd>
 
   <dt>Category</dt>
-  <dd><%= @task.category_id %></dd>
+  <dd><%= @task.category.name %></dd>
 
   <dt>Complete</dt>
   <dd><%= @task.complete? %></dd>
 
-  <dt>Person1</dt>
+  <dt>Person 1</dt>
   <dd><%= @task.person1? %></dd>
 
-  <dt>Person2</dt>
+  <dt>Person 2</dt>
   <dd><%= @task.person2? %></dd>
 
 </dl>

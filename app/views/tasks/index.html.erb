@@ -26,9 +26,9 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.due_date %></td>
-        <td><%= task.account_id %></td>
+        <td><%= task.account.nickname %></td>
         <td><%= task.description %></td>
-        <td><%= task.category_id %></td>
+        <td><%= task.category.name %></td>
         <td><%= task.complete? %></td>
         <td><%= task.person1? %></td>
         <td><%= task.person2? %></td>
