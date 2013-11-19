@@ -1,0 +1,67 @@
+<div class="page-header">
+  <h1>Editing Task #<%= @task.id %></h1>
+</div>
+
+<%= form_tag(task_url(@task), method: 'patch', class: 'form-horizontal') do %>
+  <div class="form-group">
+    <%= label_tag :title, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :title, @task.title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :due_date, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :due_date, @task.due_date, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :account_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= number_field_tag :account_id, @task.account_id, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :description, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_area_tag :description, @task.description, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :category_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= number_field_tag :category_id, @task.category_id, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :complete, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= check_box_tag :complete, 1, @task.complete? %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :person1, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= check_box_tag :person1, 1, @task.person1? %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :person2, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= check_box_tag :person2, 1, @task.person2? %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-6">
+      <%= submit_tag "Update Task", class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

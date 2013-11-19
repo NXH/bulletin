@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Event #<%= @event.id %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title</dt>
+  <dd><%= @event.title %></dd>
+
+  <dt>Start time</dt>
+  <dd><%= @event.start_time %></dd>
+
+  <dt>End time</dt>
+  <dd><%= @event.end_time %></dd>
+
+  <dt>Account</dt>
+  <dd><%= @event.account_id %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @event.description %></dd>
+
+  <dt>Location</dt>
+  <dd><%= @event.location %></dd>
+
+  <dt>Category</dt>
+  <dd><%= @event.category_id %></dd>
+
+  <dt>Person1</dt>
+  <dd><%= @event.person1? %></dd>
+
+  <dt>Person2</dt>
+  <dd><%= @event.person2? %></dd>
+
+</dl>

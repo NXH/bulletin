@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Task #<%= @task.id %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title</dt>
+  <dd><%= @task.title %></dd>
+
+  <dt>Due date</dt>
+  <dd><%= @task.due_date %></dd>
+
+  <dt>Account</dt>
+  <dd><%= @task.account_id %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @task.description %></dd>
+
+  <dt>Category</dt>
+  <dd><%= @task.category_id %></dd>
+
+  <dt>Complete</dt>
+  <dd><%= @task.complete? %></dd>
+
+  <dt>Person1</dt>
+  <dd><%= @task.person1? %></dd>
+
+  <dt>Person2</dt>
+  <dd><%= @task.person2? %></dd>
+
+</dl>
