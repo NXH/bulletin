@@ -1,33 +1,36 @@
 <div class="page-header">
-  <h1>Event #<%= @event.id %></h1>
+  <h1> <%= @event.title %> </h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Title</dt>
-  <dd><%= @event.title %></dd>
-
-  <dt>Start time</dt>
-  <dd><%= @event.start_time %></dd>
-
-  <dt>End time</dt>
-  <dd><%= @event.end_time %></dd>
-
-  <dt>Account</dt>
-  <dd><%= @event.account.nickname %></dd>
-
-  <dt>Description</dt>
-  <dd><%= @event.description %></dd>
-
-  <dt>Location</dt>
-  <dd><%= @event.location %></dd>
-
-  <dt>Category</dt>
-  <dd><%= @event.category.name %></dd>
-
-  <dt>Person1</dt>
-  <dd><%= @event.person1? %></dd>
-
-  <dt>Person2</dt>
-  <dd><%= @event.person2? %></dd>
-
-</dl>
+<div class = "row">
+  <div class = "col-lg-6">
+    <div class = "panel panel-default">
+      <div class = "panel-heading">
+        <h3>Event Details</h3>
+      </div>
+      <div class = "panel-body">
+        <p><b>Event title:</b> <%= @event.title %></p>
+        <p><b>Start time:</b> <%= @event.start_time.to_formatted_s(:short) %></p>
+        <p><b>End time:</b> <%= @event.end_time.to_formatted_s(:short) %></p>
+        <p><b>Location: </b> <%= @event.location %></p>
+        <p><b>Category:</b> <%= @event.category.name %></p>
+        <p><b>Description: </b> <%= @event.description %></p>
+        <p><b>Person one attending?</b> <%= @event.person1? %></p>
+        <p><b>Person two attending?</b> <%= @event.person2? %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "row">
+  <div class = "col-lg-6">
+    <div class ="col-lg-4">
+      <%= link_to "Back to events", events_url%>
+    </div>
+    <div class = "col-lg-4">
+      <%= link_to "Edit event".html_safe, edit_event_url(@event)%>
+    </div>
+    <div class = "col-lg-4">
+      <%= link_to "Delete event".html_safe, event_url(@event), method: 'delete', data: { confirm: "Do you really want to delete this event?" }%>
+    </div>
+  </div>
+</div>

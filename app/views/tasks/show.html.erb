@@ -1,30 +1,36 @@
 <div class="page-header">
-  <h1>Task #<%= @task.id %></h1>
+  <h1> <%= @task.title %> </h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Title</dt>
-  <dd><%= @task.title %></dd>
+<div class = "row">
+  <div class = "col-lg-6">
+    <div class = "panel panel-default">
+      <div class = "panel-heading">
+        <h3>Task Details</h3>
+      </div>
+      <div class = "panel-body">
+        <p><b>Task title:</b> <%= @task.title %></p>
+        <p><b>Due date:</b> <%= @task.due_date %></p>
+        <p><b>Description:</b> <%= @task.description %></p>
+        <p><b>Category:</b> <%= @task.category.name %></p>
+        <p><b>Assigned to person one?</b> <%= @task.person1? %></p>
+        <p><b>Assigned to person two?</b> <%= @task.person2? %></p>
+        <p><b>Complete?</b> <%= @task.complete?%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "row">
+  <div class = "col-lg-6">
+    <div class ="col-lg-4">
+      <%= link_to "Back to tasks", tasks_url%>
+    </div>
+    <div class = "col-lg-4">
+      <%= link_to "Edit task".html_safe, edit_task_url(@task)%>
+    </div>
+    <div class = "col-lg-4">
+      <%= link_to "Delete task".html_safe, task_url(@task), method: 'delete', data: { confirm: "Do you really want to delete this task?" }%>
+    </div>
+  </div>
+</div>
 
-  <dt>Due date</dt>
-  <dd><%= @task.due_date %></dd>
-
-  <dt>Account</dt>
-  <dd><%= @task.account.nickname %></dd>
-
-  <dt>Description</dt>
-  <dd><%= @task.description %></dd>
-
-  <dt>Category</dt>
-  <dd><%= @task.category.name %></dd>
-
-  <dt>Complete</dt>
-  <dd><%= @task.complete? %></dd>
-
-  <dt>Person 1</dt>
-  <dd><%= @task.person1? %></dd>
-
-  <dt>Person 2</dt>
-  <dd><%= @task.person2? %></dd>
-
-</dl>
