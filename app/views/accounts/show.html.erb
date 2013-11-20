@@ -1,24 +1,35 @@
 <div class="page-header">
-  <h1>Account #<%= @account.id %></h1>
+  <h1>Manage your account</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Nickname</dt>
-  <dd><%= @account.nickname %></dd>
+<div class = "row">
+  <div class = "col-lg-6">
+    <div class = "panel panel-default">
+      <div class = "panel-heading">
+        <h3>Account Details</h3>
+      </div>
+      <div class = "panel-body">
+        <p><b>Account name:</b> <%= @account.nickname %></p>
+        <p><b>Person one:</b> <%= @account.person1 %></p>
+        <p><b>Person two:</b> <%= @account.person2%></p>
+        <p><b>Person one email:</b> <%= @account.person1_email %></p>
+        <p><b>Person two email:</b> <%= @account.person2_email %></p>
+        <p><b>Password:</b> <%= @account.password_digest%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "row">
+  <div class = "col-lg-6">
+    <div class ="col-lg-4">
+      <%= link_to "Back to events", events_url%>
+    </div>
+    <div class = "col-lg-4">
+      <%= link_to "Edit account".html_safe, edit_account_url(@account)%>
+    </div>
+    <div class = "col-lg-4">
+      <%= link_to "Delete account".html_safe, account_url(@account), method: 'delete', data: { confirm: "Do you really want to delete this account?" }%>
+    </div>
+  </div>
+</div>
 
-  <dt>Person1</dt>
-  <dd><%= @account.person1 %></dd>
-
-  <dt>Person2</dt>
-  <dd><%= @account.person2 %></dd>
-
-  <dt>Person1 email</dt>
-  <dd><%= @account.person1_email %></dd>
-
-  <dt>Person2 email</dt>
-  <dd><%= @account.person2_email %></dd>
-
-  <dt>Password digest</dt>
-  <dd><%= @account.password_digest %></dd>
-
-</dl>
