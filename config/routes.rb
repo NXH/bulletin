@@ -1,6 +1,9 @@
 Bulletin::Application.routes.draw do
   # Root URL
-  root "events#index"
+  root "pages#landing"
+
+  # Landing
+  get '/landing', controller: 'pages', action: 'landing'
 
   # Routes for the Category resource:
   # CREATE
