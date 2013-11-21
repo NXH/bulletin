@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
 
   def index
-    @accounts = Account.all
+    @accounts = Account.find(:all, :order => 'nickname'.downcase)
   end
 
   def show

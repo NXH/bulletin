@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    @categories = Category.all
+    @categories = Category.find(:all, :order => 'name'.downcase)
   end
 
   def show
