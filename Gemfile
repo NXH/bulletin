@@ -6,12 +6,12 @@ gem 'starter_generators'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-group :development use
+group :development do
 # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
 
-group :production use
+group :production do
   gem 'pg'
 end
 
