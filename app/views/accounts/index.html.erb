@@ -27,7 +27,7 @@
               <td> <%= account.person2 %> </td>
               <td> <%= account.person1_email %> </td>
               <td> <%= account.person2_email %> </td>
-              <td> <%= account.password_digest %> </td>
+              <td> <%=  %> </td>
               <td> <%= link_to "Details".html_safe, account_url(account)%> - <%= link_to "Edit".html_safe, edit_account_url(account)%> - <%= link_to "Delete".html_safe, account_url(account), method: 'delete', data: { confirm: "Do you really want to delete this account?" }%> </td>
             </tr>
           <% end %>

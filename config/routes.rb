@@ -1,4 +1,5 @@
 Bulletin::Application.routes.draw do
+  devise_for :accounts
   # Root URL
   root "pages#landing"
 
