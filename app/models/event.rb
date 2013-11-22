@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
   validates :category_id, :presence => true
   validates :start_time, :presence => true
   validates :end_time, :presence => true
+  validates :account_id, :presence => true
 
   def time_format(time)
     return time.to_formatted_s(:short)

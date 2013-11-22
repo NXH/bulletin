@@ -43,6 +43,13 @@
         <li><%= link_to "Events", events_url %></li>
         <li><%= link_to "Tasks", tasks_url %></li>
         <li><%= link_to "Categories", categories_url %></li>
+        <% if account_signed_in? %>
+          <li> <%= link_to current_account.nickname, edit_account_url(current_account.id) %> </li>
+          <li> <%= link_to "Logout", destroy_account_session_path, method: :delete%> </li>
+        <% else %>
+          <li> <%= link_to "Sign up", new_account_registration_path %></li>
+          <li> <%= link_to "Login", new_account_session_path %> </li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>

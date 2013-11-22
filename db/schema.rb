@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122032257) do
+ActiveRecord::Schema.define(version: 20131122173009) do
 
   create_table "accounts", force: true do |t|
     t.string   "nickname"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20131122032257) do
     t.string   "person2"
     t.string   "person1_email"
     t.string   "person2_email"
-    t.string   "password_digest"
     t.string   "person1_picture"
     t.string   "person2_picture"
     t.string   "email",                  default: "", null: false
