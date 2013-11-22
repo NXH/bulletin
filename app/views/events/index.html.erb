@@ -2,7 +2,11 @@
   <div class = "col-lg-12">
     <div class = "page-header">
       <h1>Your Events</h1>
+      <% (Event.count / 20.0).ceil.times do |page| %>
+        <%= link_to "Page #{page + 1}", "/events?page=#{page + 1}" %>
+        <% end %>
     </div>
+
 
 <p><%= link_to 'Add a New Event', new_event_url, class: 'btn btn-primary' %></p>
 

@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
   end
 
   def new
+    @account = Account.new
   end
 
   def create
@@ -18,6 +19,8 @@ class AccountsController < ApplicationController
     @account.person2 = params[:person2]
     @account.person1_email = params[:person1_email]
     @account.person2_email = params[:person2_email]
+    @account.person1_picture = params[:person1_picture]
+    @account.person2_picture = params[:person2_picture]
     @account.password_digest = params[:password_digest]
 
     if @account.save
@@ -38,6 +41,8 @@ class AccountsController < ApplicationController
     @account.person2 = params[:person2]
     @account.person1_email = params[:person1_email]
     @account.person2_email = params[:person2_email]
+    @account.person1_picture = params[:person1_picture]
+    @account.person2_picture = params[:person2_picture]
     @account.password_digest = params[:password_digest]
 
     if @account.save

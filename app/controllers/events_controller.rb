@@ -1,7 +1,13 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    page_number = params[:page].to_i
+
+    if params[:page]
+      @events = Event.offset((page_number - 1)*20).limit(20)
+    else
+      @events = Event.all
+    end
   end
 
   def show
@@ -9,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @event = Event.new
   end
 
   def create

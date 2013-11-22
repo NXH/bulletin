@@ -2,53 +2,59 @@
   <h1>New Event</h1>
 </div>
 
+<% if @event.errors.any? %>
+  <ul><% @event.errors.full_messages.each do |message| %></ul>
+    <li> <%= message %> </li>
+  <% end %>
+<% end %>
+
 <%= form_tag(events_url, method: 'post', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :title, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :title, nil, class: 'form-control' %>
+      <%= text_field_tag :title, @event.title, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :start_time, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= datetime_local_field_tag :start_time, nil, class: 'form-control' %>
+      <%= datetime_local_field_tag :start_time, @event.start_time, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :end_time, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= datetime_local_field_tag :end_time, nil, class: 'form-control' %>
+      <%= datetime_local_field_tag :end_time, @event.end_time, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :account_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= select_tag :account_id, options_from_collection_for_select(Account.all, :id, :nickname,), class: 'form-control' %>
+      <%= select_tag :account_id, options_from_collection_for_select(Account.all, :id, :nickname, @event.account_id), class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :description, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_area_tag :description, nil, class: 'form-control' %>
+      <%= text_area_tag :description, @event.description, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :location, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_area_tag :location, nil, class: 'form-control' %>
+      <%= text_area_tag :location, @event.location, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :category_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :name,), class: 'form-control' %>
+      <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :name,@event.category_id), class: 'form-control' %>
     </div>
   </div>
 
