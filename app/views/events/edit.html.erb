@@ -2,6 +2,15 @@
   <h1>Editing Event #<%= @event.id %></h1>
 </div>
 
+<% if@event.errors.any? %>
+  <% @event.errors.full_messages.each do |message| %>
+    <div class = "alert alert-dismissable alert-danger">
+      <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;</button>
+        <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= form_tag(event_url(@event), method: 'patch', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :title, nil, class: 'col-md-2 control-label' %>

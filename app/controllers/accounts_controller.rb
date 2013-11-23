@@ -21,7 +21,7 @@ class AccountsController < ApplicationController
     @account.person2_email = params[:person2_email]
     @account.person1_picture = params[:person1_picture]
     @account.person2_picture = params[:person2_picture]
-    @account.password_digest = params[:password_digest]
+
 
     if @account.save
       redirect_to accounts_url, notice: "Account created successfully."
@@ -43,7 +43,6 @@ class AccountsController < ApplicationController
     @account.person2_email = params[:person2_email]
     @account.person1_picture = params[:person1_picture]
     @account.person2_picture = params[:person2_picture]
-    @account.password_digest = params[:password_digest]
 
     if @account.save
       redirect_to accounts_url, notice: "Account updated successfully."

@@ -2,6 +2,15 @@
   <h1>Editing Category #<%= @category.id %></h1>
 </div>
 
+<% if@category.errors.any? %>
+  <% @category.errors.full_messages.each do |message| %>
+    <div class = "alert alert-dismissable alert-danger">
+      <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;</button>
+        <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= form_tag(category_url(@category), method: 'patch', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :name, nil, class: 'col-md-2 control-label' %>

@@ -2,6 +2,15 @@
   <h1>New Event</h1>
 </div>
 
+<% if@event.errors.any? %>
+  <% @event.errors.full_messages.each do |message| %>
+    <div class = "alert alert-dismissable alert-danger">
+      <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;</button>
+        <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <% if @event.errors.any? %>
   <ul><% @event.errors.full_messages.each do |message| %></ul>
     <li> <%= message %> </li>
