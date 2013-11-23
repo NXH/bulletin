@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new
     @category.name = params[:name]
-    @category.account_id = params[:account_id]
+    @category.account_id = current_account.id
 
     if @category.save
       redirect_to categories_url, notice: "Category created successfully."
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find_by(id: params[:id])
     @category.name = params[:name]
-    @category.account_id = params[:account_id]
+    @category.account_id = current_account.id
 
     if @category.save
       redirect_to categories_url, notice: "Category updated successfully."

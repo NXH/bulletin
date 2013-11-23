@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task = Task.new
     @task.title = params[:title]
     @task.due_date = params[:due_date]
-    @task.account_id = params[:account_id]
+    @task.account_id = current_account.id
     @task.description = params[:description]
     @task.category_id = params[:category_id]
     @task.complete = params[:complete]
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
     @task.title = params[:title]
     @task.due_date = params[:due_date]
-    @task.account_id = params[:account_id]
+    @task.account_id = current_account.id
     @task.description = params[:description]
     @task.category_id = params[:category_id]
     @task.complete = params[:complete]

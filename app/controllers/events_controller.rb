@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     @event.title = params[:title]
     @event.start_time = params[:start_time]
     @event.end_time = params[:end_time]
-    @event.account_id = params[:account_id]
+    @event.account_id = current_account.id
     @event.description = params[:description]
     @event.location = params[:location]
     @event.category_id = params[:category_id]
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
     @event.title = params[:title]
     @event.start_time = params[:start_time]
     @event.end_time = params[:end_time]
-    @event.account_id = params[:account_id]
+    @event.account_id = current_account.id
     @event.description = params[:description]
     @event.location = params[:location]
     @event.category_id = params[:category_id]
