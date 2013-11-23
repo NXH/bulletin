@@ -1,11 +1,17 @@
 class TasksController < ApplicationController
 
+  before_action :set_task, :only => [:show, :edit, :update, :destroy]
+
+  def set_task
+    @task = Task.find_by(id: params[:id])
+  end
+
   def index
     @tasks = Task.all
   end
 
   def show
-    @task = Task.find_by(id: params[:id])
+
   end
 
   def new
@@ -31,11 +37,10 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find_by(id: params[:id])
+
   end
 
   def update
-    @task = Task.find_by(id: params[:id])
     @task.title = params[:title]
     @task.due_date = params[:due_date]
     @task.account_id = current_account.id
@@ -53,7 +58,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find_by(id: params[:id])
     @task.destroy
 
     redirect_to tasks_url, notice: "Task deleted."
