@@ -1,5 +1,11 @@
 class EventsController < ApplicationController
 
+  before_action :set_event, :only => [:show, :edit, :update, :destroy]
+
+  def set_event
+    @event = Event.find_by(id: params[:id])
+  end
+
   def index
     page_number = params[:page].to_i
 
@@ -11,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(id: params[:id])
+
   end
 
   def new
@@ -38,11 +44,10 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find_by(id: params[:id])
+
   end
 
   def update
-    @event = Event.find_by(id: params[:id])
     @event.title = params[:title]
     @event.start_time = params[:start_time]
     @event.end_time = params[:end_time]
@@ -61,7 +66,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find_by(id: params[:id])
     @event.destroy
 
     redirect_to events_url, notice: "Event deleted."
