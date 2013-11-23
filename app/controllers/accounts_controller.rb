@@ -1,9 +1,16 @@
 class AccountsController < ApplicationController
 
-  before_action :set_account, :only =>[:show, :edit, :update, :destroy]
+  before_action :set_account, :only => [:show, :edit, :update, :destroy]
+  before_action :authorize_account, :only => [:edit, :update, :destroy]
 
   def set_account
-    @account = Account.find_by(id: params [:id])
+    @account = Account.find_by(id: params[:id])
+  end
+
+  def authorize_account
+    unless @account = current_account
+      redirect_to root_url, :alert => "Please login or signup first."
+    end
   end
 
   def index
