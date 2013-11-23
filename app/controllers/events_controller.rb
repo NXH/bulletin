@@ -18,9 +18,9 @@ class EventsController < ApplicationController
     page_number = params[:page].to_i
 
     if params[:page]
-      @events = Event.offset((page_number - 1)*20).limit(20)
+      @events = current_account.events.offset((page_number - 1)*20).limit(20)
     else
-      @events = Event.all
+      @events = current_account.events.all
     end
   end
 

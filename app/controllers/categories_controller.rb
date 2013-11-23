@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.find(:all, :order => 'name'.downcase)
+    @categories = current_account.categories.find(:all, :order => 'name'.downcase)
   end
 
   def show

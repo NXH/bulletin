@@ -15,7 +15,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all
+    @tasks = current_account.tasks.all
   end
 
   def show
