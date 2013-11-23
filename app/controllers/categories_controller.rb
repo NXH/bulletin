@@ -1,9 +1,16 @@
 class CategoriesController < ApplicationController
 
   before_action :set_category, :only => [:show, :edit, :update, :destroy]
+  before_action :account_must_own_category, :only => [:edit, :update, :destroy]
 
   def set_category
     @category = Category.find_by(id: params[:id])
+  end
+
+  def account_must_own_category
+    unless @category.account_id == current_account
+      redirect_to root_url, :alert => "You are not authorized to do that."
+    end
   end
 
   def index

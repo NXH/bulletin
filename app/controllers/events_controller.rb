@@ -1,9 +1,16 @@
 class EventsController < ApplicationController
 
   before_action :set_event, :only => [:show, :edit, :update, :destroy]
+  before_action :account_must_own_event, :only => [:edit, :update, :destroy]
 
   def set_event
     @event = Event.find_by(id: params[:id])
+  end
+
+  def account_must_own_event
+    unless @event.account_id == current_account
+      redirect_to root_url, :alert => "You are not authorized to do that."
+    end
   end
 
   def index

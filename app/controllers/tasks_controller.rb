@@ -1,9 +1,16 @@
 class TasksController < ApplicationController
 
   before_action :set_task, :only => [:show, :edit, :update, :destroy]
+  before_action :account_must_own_task, :only => [:edit, :update, :destroy]
 
   def set_task
     @task = Task.find_by(id: params[:id])
+  end
+
+  def account_must_own_task
+    unless @task.account_id == current_account
+      redirect_to root_url, :alert => "You are not authorized to do that."
+    end
   end
 
   def index
