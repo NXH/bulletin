@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
   before_action :authenticate_account!
   before_action :set_task, :only => [:show, :edit, :update, :destroy]
-  before_action :account_must_own_task, :only => [:edit, :update, :destroy]
+  before_action :account_must_own_task, :only => [:show, :edit, :update, :destroy]
 
   def set_task
     @task = Task.find_by(id: params[:id])

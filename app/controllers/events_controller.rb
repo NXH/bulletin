@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   before_action :authenticate_account!
   before_action :set_event, :only => [:show, :edit, :update, :destroy]
-  before_action :account_must_own_event, :only => [:edit, :update, :destroy]
+  before_action :account_must_own_event, :only => [:show, :edit, :update, :destroy]
 
   def set_event
     @event = Event.find_by(id: params[:id])
