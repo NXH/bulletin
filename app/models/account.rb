@@ -4,9 +4,9 @@ class Account < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :categories
-  has_many :events
-  has_many :tasks
+  has_many :categories, :dependent => destroy
+  has_many :events, :dependent => destroy
+  has_many :tasks, :dependent => destroy
 
   validates :nickname, :presence => true
   validates :person1, :presence => true
