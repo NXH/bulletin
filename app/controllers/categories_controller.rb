@@ -1,11 +1,16 @@
 class CategoriesController < ApplicationController
 
+  before_action :set_category, :only => [:show, :edit, :update, :destroy]
+
+  def set_category
+    @category = Category.find_by(id: params[:id])
+  end
+
   def index
     @categories = Category.find(:all, :order => 'name'.downcase)
   end
 
   def show
-    @category = Category.find_by(id: params[:id])
   end
 
   def new
@@ -25,11 +30,9 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find_by(id: params[:id])
   end
 
   def update
-    @category = Category.find_by(id: params[:id])
     @category.name = params[:name]
     @category.account_id = current_account.id
 
@@ -41,7 +44,6 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find_by(id: params[:id])
     @category.destroy
 
     redirect_to categories_url, notice: "Category deleted."
