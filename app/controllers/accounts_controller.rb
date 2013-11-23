@@ -1,11 +1,16 @@
 class AccountsController < ApplicationController
 
+  before_action :set_account, :only =>[:show, :edit, :update, :destroy]
+
+  def set_account
+    @account = Account.find_by(id: params [:id])
+  end
+
   def index
     @accounts = Account.find(:all, :order => 'nickname'.downcase)
   end
 
   def show
-    @account = Account.find_by(id: params[:id])
   end
 
   def new
@@ -31,11 +36,9 @@ class AccountsController < ApplicationController
   end
 
   def edit
-    @account = Account.find_by(id: params[:id])
   end
 
   def update
-    @account = Account.find_by(id: params[:id])
     @account.nickname = params[:nickname]
     @account.person1 = params[:person1]
     @account.person2 = params[:person2]
@@ -52,7 +55,6 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    @account = Account.find_by(id: params[:id])
     @account.destroy
 
     redirect_to accounts_url, notice: "Account deleted."
