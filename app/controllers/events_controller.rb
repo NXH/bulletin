@@ -15,13 +15,25 @@ class EventsController < ApplicationController
   end
 
   def index
-    page_number = params[:page].to_i
+    # page_number = params[:page].to_i
 
-    if params[:page]
-      @events = current_account.events.offset((page_number - 1)*20).limit(20)
+    if params[:person1]
+      @events = current_account.events.where(:person1 => true)
     else
-      @events = current_account.events.all
+      if params[:person2]
+        @events = current_account.events.where(:person2 => true)
+      else
+        @events = current_account.events.all
+      end
     end
+
+    # if params[:page]
+    #   @events = current_account.events.offset((page_number - 1)*20).limit(20)
+    # else
+    #   @events = current_account.events.all
+    # end
+
+
   end
 
   def show

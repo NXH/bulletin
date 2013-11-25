@@ -15,7 +15,16 @@
         <p><b>Location: </b> <%= @event.location %></p>
         <p><b>Category:</b> <%= @event.category.name %></p>
         <p><b>Description: </b> <%= @event.description %></p>
-        <p><b>Person one attending?</b> <%= @event.person1? %></p>
+        <p><b>Attending: </b>
+          <% if @event.person1? == true %>
+              <%= current_account.person1 %>
+              <% else %>
+              <% end %>
+          <% if @event.person2? == true %>
+               and <%= current_account.person2 %>
+              <% else %>
+              <% end %>
+        </p>
         <p><b>Person two attending?</b> <%= @event.person2? %></p>
       </div>
     </div>

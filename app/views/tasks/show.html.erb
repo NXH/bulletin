@@ -13,8 +13,17 @@
         <p><b>Due date:</b> <%= @task.due_date %></p>
         <p><b>Description:</b> <%= @task.description %></p>
         <p><b>Category:</b> <%= @task.category.name %></p>
-        <p><b>Assigned to person one?</b> <%= @task.person1? %></p>
-        <p><b>Assigned to person two?</b> <%= @task.person2? %></p>
+        <p><b>Assigned to:</b>
+          <% if @task.person1? == true %>
+              <%= current_account.person1 %>
+              <% else %>
+              <% end %>
+          <% if @task.person2? == true %>
+               and <%= current_account.person2 %>
+              <% else %>
+              <% end %></p>
+
+        </p>
         <p><b>Complete?</b> <%= @task.complete?%></p>
       </div>
     </div>

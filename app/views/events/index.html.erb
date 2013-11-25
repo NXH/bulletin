@@ -2,9 +2,7 @@
   <div class = "col-lg-12">
     <div class = "page-header">
       <h1>Your Events</h1>
-      <% (Event.count / 20.0).ceil.times do |page| %>
-        <%= link_to "Page #{page + 1}", "/events?page=#{page + 1}" %>
-        <% end %>
+      <p>Find events for: <%= link_to current_account.person1, "/events?person1=#{true}" %>   <%= link_to current_account.person2, "/events?person2=#{true}" %> </p>
     </div>
 
 
@@ -18,8 +16,7 @@
             <th>Start Time</th>
             <th>End Time</th>
             <th>Category</th>
-            <th>Person 1?</th>
-            <th>Person 2?</th>
+            <th>Attending</th>
             <th>Options</th>
           </tr>
         </thead>
@@ -30,8 +27,16 @@
               <td> <%= event.start_time.to_formatted_s(:short) %> </td>
               <td> <%= event.end_time.to_formatted_s(:short) %> </td>
               <td> <%= event.category.name %> </td>
-              <td> <%=  event.person1? %> </td>
-              <td> <%=  event.person2 %> </td>
+              <td>
+               <% if event.person1? == true %>
+                  <img src = "<%= current_account.person1_picture %>" width = "40px" class = "img-circle">
+                  <% else %>
+                  <% end %>
+                <% if event.person2? == true %>
+                  <img src = "<%= current_account.person2_picture %>" width = "40px" class = "img-circle">
+                  <% else %>
+                  <% end %>
+              </td>
               <td> <%= link_to "Details".html_safe, event_url(event)%> - <%= link_to "Edit".html_safe, edit_event_url(event)%> - <%= link_to "Delete".html_safe, event_url(event), method: 'delete', data: { confirm: "Do you really want to delete this event?" }%> </td>
             </tr>
           <% end %>
