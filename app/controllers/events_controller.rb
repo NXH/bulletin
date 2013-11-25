@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def account_must_own_event
-    unless @event.account_id == current_account
+    unless @event.account_id == current_account.id
       redirect_to root_url, :alert => "You are not authorized to do that."
     end
   end

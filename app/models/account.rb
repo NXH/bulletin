@@ -11,7 +11,7 @@ class Account < ActiveRecord::Base
   #validates :nickname, :presence => true
   #validates :person1, :presence => true
   #validates :person2, :presence => true
-  validates :encrypted_password, :presence => true
-  validates :email, :presence => true
+  #validates :encrypted_password, :presence => true
+  #validates :email, :presence => true
 
 end
