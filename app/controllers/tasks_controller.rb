@@ -15,7 +15,15 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = current_account.tasks.all
+    if params[:person1]
+      @tasks = current_account.tasks.where(:person1 => true)
+    else
+      if params[:person2]
+        @tasks = current_account.tasks.where(:person2 => true)
+      else
+        @tasks = current_account.tasks.all
+      end
+    end
   end
 
   def show
