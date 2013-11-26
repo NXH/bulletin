@@ -8,7 +8,7 @@
     <div class = "container" class = "col-lg-12">
       <div class = "row">
         <div class = "col-md-6">
-          <h1><img src = "<%= current_account.person1_picture %>" width = "40px" class = "img-circle">  Events for <%= current_account.person1 %></h1>
+          <h1><img src = "<%= current_account.person1_picture %>" width = "40px" class = "img-circle">  Events for <%= link_to current_account.person1, "/events?person1=#{true}" %></h1>
           <div class = "table-responsive">
             <table class = "table table-striped table-hover">
               <thead>
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class = "col-md-6">
-          <h1><img src = "<%= current_account.person2_picture %>" width = "40px" class = "img-circle">  Events for <%= current_account.person2 %></h1>
+          <h1><img src = "<%= current_account.person2_picture %>" width = "40px" class = "img-circle">  Events for <%= link_to current_account.person2, "/events?person2=#{true}" %></h1>
           <div class = "table-responsive">
             <table class = "table table-striped table-hover">
               <thead>
@@ -60,7 +60,7 @@
     <div class = "container">
       <div class = "row">
         <div class = "col-md-6">
-          <h1><img src = "<%= current_account.person1_picture %>" width = "40px" class = "img-circle">  Tasks for <%= current_account.person1 %></h1>
+          <h1><img src = "<%= current_account.person1_picture %>" width = "40px" class = "img-circle">  Tasks for <%= link_to current_account.person1, "/tasks?person1=#{true}" %></h1>
           <div class = "table-responsive">
             <table class = "table table-striped table-hover">
               <thead>
@@ -83,7 +83,7 @@
           </div>
         </div>
         <div class = "col-md-6">
-          <h1><img src = "<%= current_account.person2_picture %>" width = "40px" class = "img-circle">  Tasks for <%= current_account.person2 %></h1>
+          <h1><img src = "<%= current_account.person2_picture %>" width = "40px" class = "img-circle">  Tasks for <%= link_to current_account.person2, "/tasks?person2=#{true}" %></h1>
           <div class = "table-responsive">
             <table class = "table table-striped table-hover">
               <thead>
