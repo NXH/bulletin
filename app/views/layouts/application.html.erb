@@ -33,7 +33,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to Rails.application.class.parent_name, root_url, :class => "navbar-brand" %>
+      <% if account_signed_in? == true %>
+        <%= link_to Rails.application.class.parent_name, '/user_home', :class => "navbar-brand" %>
+      <% else %>
+        <%= link_to Rails.application.class.parent_name, root_url, :class => "navbar-brand" %>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

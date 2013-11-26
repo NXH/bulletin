@@ -5,6 +5,7 @@ Bulletin::Application.routes.draw do
 
   # Landing
   get '/landing', controller: 'pages', action: 'landing'
+  get '/user_home', controller: 'pages', action: 'user_home'
 
   # Routes for the Category resource:
   # CREATE
