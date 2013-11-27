@@ -1,6 +1,11 @@
 class PagesController < ApplicationController
 
   def landing
+    if account_signed_in? == true
+      redirect_to "/user_home"
+    else
+      render
+    end
   end
 
   def user_home
