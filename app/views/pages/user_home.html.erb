@@ -1,7 +1,7 @@
 <div class = "row">
   <div class = "col-lg-12">
     <div class = "page-header">
-      <h1>Your Summary</h1>
+      <h1>Your Summary</h1> <p> <%= link_to "Today", "/user_home?range=today"%> --- <%= link_to "Tomorrow", "/user_home?range=tomorrow"%> --- <%= link_to "Next 7 Days", "/user_home?range=#{7}"%> --- <%= link_to "Next 30 Days", "/user_home?range=#{30}"%></p>
     </div>
   </div>
 </div>
