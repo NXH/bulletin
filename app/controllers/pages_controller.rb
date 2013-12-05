@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def landing
     if account_signed_in? == true
-      redirect_to "/user_home"
+      redirect_to "/user_home?range=#{7}"
     else
       render
     end
