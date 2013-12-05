@@ -20,8 +20,8 @@
           <% @categories.each do |category| %>
             <tr>
               <td> <%= category.name %> </td>
-              <td></td>
-              <td></td>
+              <td> <%= link_to category.name, "/events?category=#{category.id}" %> </td>
+              <td> <%= link_to category.name, "/tasks?category=#{category.id}" %> </td>
               <td> <%= link_to "Edit".html_safe, edit_category_url(category)%></td>
             </tr>
           <% end %>

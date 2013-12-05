@@ -15,14 +15,14 @@ class TasksController < ApplicationController
   end
 
   def index
-    if params[:person1]
+    if params[:category]
+      @tasks = current_account.tasks.where(:category_id => params[:category])
+    elsif params[:person1]
       @tasks = current_account.tasks.where(:person1 => true)
+    elsif params[:person2]
+      @tasks = current_account.tasks.where(:person2 => true)
     else
-      if params[:person2]
-        @tasks = current_account.tasks.where(:person2 => true)
-      else
-        @tasks = current_account.tasks.all
-      end
+      @tasks = current_account.tasks.all
     end
   end
 
