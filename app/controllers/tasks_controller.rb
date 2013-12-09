@@ -16,13 +16,13 @@ class TasksController < ApplicationController
 
   def index
     if params[:category]
-      @tasks = current_account.tasks.where(:category_id => params[:category])
+      @tasks = current_account.tasks.order("due_date").where(:category_id => params[:category])
     elsif params[:person1]
-      @tasks = current_account.tasks.where(:person1 => true)
+      @tasks = current_account.tasks.order("due_date").where(:person1 => true)
     elsif params[:person2]
-      @tasks = current_account.tasks.where(:person2 => true)
+      @tasks = current_account.tasks.order("due_date").where(:person2 => true)
     else
-      @tasks = current_account.tasks.all
+      @tasks = current_account.tasks.order("due_date").all
     end
   end
 
