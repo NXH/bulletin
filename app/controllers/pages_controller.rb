@@ -9,6 +9,10 @@ class PagesController < ApplicationController
   end
 
   def user_home
+    if current_account.person1 == nil or current_account.person2 == nil
+      redirect_to edit_account_url(current_account.id), :alert => "Please complete your profile."
+    end
+
     today = Date.today
     tomorrow = Date.today.advance(days:1)
 

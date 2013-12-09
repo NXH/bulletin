@@ -15,6 +15,7 @@ class AccountsController < ApplicationController
   end
 
   def index
+    redirect_to "/user_home?range=7"
     @accounts = Account.find(:all, :order => 'nickname'.downcase)
   end
 
